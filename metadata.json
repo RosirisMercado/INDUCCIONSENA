@@ -1,0 +1,6 @@
+{
+  "name": "SENA Inducción Digital - Sistema de Apropiación y Gestión",
+  "description": "Plataforma interactiva para la gestión de inducción de aprendices del SENA: identidad institucional, reglamento del aprendiz (derechos y deberes), simulador de dilemas y evaluación formativa de apropiación con certificación.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

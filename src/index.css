@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@keyframes themeBlurTransition {
+  0% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  50% {
+    filter: blur(6px);
+    opacity: 0.9;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.theme-blur-active {
+  animation: themeBlurTransition 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #0f172a;
+    background-color: #f8fafc;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark body {
+    color: #f8fafc;
+    background-color: #090d16;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #certificate-print-area, #certificate-print-area *,
+  #instructor-pdf-print-area, #instructor-pdf-print-area * {
+    visibility: visible;
+  }
+  #certificate-print-area, #instructor-pdf-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: white;
+    box-shadow: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Official Google Sign-In Button styles */
+.gsi-material-button {
+  background-color: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  font-size: 13px;
+  height: 40px;
+  outline: none;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .2s, box-shadow .2s;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+}
+
+.gsi-material-button:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+}
+
+.gsi-material-button-content-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+  gap: 10px;
+}
+
+.gsi-material-button-icon {
+  height: 20px;
+  min-width: 20px;
+  width: 20px;
+}
+
+.gsi-material-button-contents {
+  font-weight: 500;
+  white-space: nowrap;
+}
